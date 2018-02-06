@@ -54,4 +54,9 @@ public class Coin extends CoinAbstract {
         Coin penny = new Coin(2.5,19.5,1.55,.01);
         return penny;
     }
+
+    public static Coin getNickel() {
+        Coin nickel = new Coin(5.0, 21.21, 1.95, .05);
+        return nickel;
+    }
 }

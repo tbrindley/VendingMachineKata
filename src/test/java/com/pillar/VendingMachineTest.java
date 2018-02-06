@@ -29,5 +29,27 @@ public class VendingMachineTest {
 
     }
 
+    @Test
+    public void readTheWidthAndWeightAndThicknessAndValueOfNickel() throws Exception{
+        Coin nickel = Coin.getNickel();
+
+        double expectedWeight = 5.0;
+        double actualWeight = nickel.getWeight();
+
+        double expectedWidth = 21.21;
+        double actualWidth = nickel.getWidth();
+
+        double expectedThickness = 1.95;
+        double actualThickness = nickel.getThickness();
+
+        double expectedValue = .05;
+        double actualValue = nickel.getValue();
+
+        assertEquals("TestCase 2, Part 1 Failed:  Nickel didn't weight 5.0g",expectedWeight, actualWeight, 0.001);
+        assertEquals("TestCase 2, Part 2 Failed:  Nickel's width wasn't 21.21mm",expectedWidth, actualWidth, 0.001);
+        assertEquals("TestCase 2, Part 3 Failed:  Nickel's thickness wasn't 1.95mm",expectedThickness, actualThickness, 0.001);
+        assertEquals("TestCase 2, Part 4 Failed:  Penny's value wasn't .05",expectedValue, actualValue, 0.001);
+    }
+
 
 }
