@@ -59,4 +59,9 @@ public class Coin extends CoinAbstract {
         Coin nickel = new Coin(5.0, 21.21, 1.95, .05);
         return nickel;
     }
+
+    public static Coin getDime() {
+        Coin dime = new Coin(2.27, 17.9, 1.35,.10);
+        return dime;
+    }
 }

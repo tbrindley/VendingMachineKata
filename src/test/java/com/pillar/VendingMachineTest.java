@@ -48,8 +48,28 @@ public class VendingMachineTest {
         assertEquals("TestCase 2, Part 1 Failed:  Nickel didn't weight 5.0g",expectedWeight, actualWeight, 0.001);
         assertEquals("TestCase 2, Part 2 Failed:  Nickel's width wasn't 21.21mm",expectedWidth, actualWidth, 0.001);
         assertEquals("TestCase 2, Part 3 Failed:  Nickel's thickness wasn't 1.95mm",expectedThickness, actualThickness, 0.001);
-        assertEquals("TestCase 2, Part 4 Failed:  Penny's value wasn't .05",expectedValue, actualValue, 0.001);
+        assertEquals("TestCase 2, Part 4 Failed:  Nickel's value wasn't .05",expectedValue, actualValue, 0.001);
     }
 
+    @Test
+    public void readTheWidthAndWeightAndThicknessAndValueOfDime() throws Exception {
+        Coin dime = Coin.getDime();
+        double expectedWeight = 2.27;
+        double actualWeight = dime.getWeight();
 
+        double expectedWidth = 17.9;
+        double actualWidth = dime.getWidth();
+
+        double expectedThickness = 1.35;
+        double actualThickness = dime.getThickness();
+
+        double expectedValue = .10;
+        double actualValue = dime.getValue();
+
+        assertEquals("TestCase 3, Part 1 Failed:  Dime didn't weight 2.27g",expectedWeight, actualWeight, 0.001);
+        assertEquals("TestCase 3, Part 2 Failed:  Dime's width wasn't 17.9mm",expectedWidth, actualWidth, 0.001);
+        assertEquals("TestCase 3, Part 3 Failed:  Dime's thickness wasn't 1.35mm",expectedThickness, actualThickness, 0.001);
+        assertEquals("TestCase 3, Part 4 Failed:  Dime's value wasn't .10",expectedValue, actualValue, 0.001);
+
+    }
 }
