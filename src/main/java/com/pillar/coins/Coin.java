@@ -64,4 +64,9 @@ public class Coin extends CoinAbstract {
         Coin dime = new Coin(2.27, 17.9, 1.35,.10);
         return dime;
     }
+
+    public static Coin getQuarter() {
+        Coin quarter = new Coin(5.67, 24.26, 1.75, .25);
+        return quarter;
+    }
 }

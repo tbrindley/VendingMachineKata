@@ -72,4 +72,26 @@ public class VendingMachineTest {
         assertEquals("TestCase 3, Part 4 Failed:  Dime's value wasn't .10",expectedValue, actualValue, 0.001);
 
     }
+
+    @Test
+    public void readTheWidthAndWeightAndThicknessAndValueOfQuarter() throws Exception {
+        Coin quarter = Coin.getQuarter();
+        double expectedWeight = 5.67;
+        double actualWeight = quarter.getWeight();
+
+        double expectedWidth = 24.26;
+        double actualWidth = quarter.getWidth();
+
+        double expectedThickness = 1.75;
+        double actualThickness = quarter.getThickness();
+
+        double expectedValue = .25;
+        double actualValue = quarter.getValue();
+
+        assertEquals("TestCase 4, Part 1 Failed:  Quarter didn't weight 5.67g",expectedWeight, actualWeight, 0.001);
+        assertEquals("TestCase 4, Part 2 Failed:  Quarter's width wasn't 24.26mm",expectedWidth, actualWidth, 0.001);
+        assertEquals("TestCase 4, Part 3 Failed:  Quarter's thickness wasn't 1.75mm",expectedThickness, actualThickness, 0.001);
+        assertEquals("TestCase 4, Part 4 Failed:  Quarter's value wasn't .25",expectedValue, actualValue, 0.001);
+
+    }
 }
