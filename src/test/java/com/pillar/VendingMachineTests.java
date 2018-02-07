@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 public class VendingMachineTests {
 
     @Test
-    public void VendingMachineDisplaysTextThatSaysInsertCoin() throws Exception {
+    public void vendingMachineDisplaysTextThatSaysInsertCoin() throws Exception {
         VendingMachine vendingMachine = new VendingMachine();
         String expected = "INSERT COIN";
         String actual = vendingMachine.getInsertCoinLabel();
@@ -16,4 +16,5 @@ public class VendingMachineTests {
        assertEquals("TestCase 1 failed.  INSERT COIN wasn't the label.",expected, actual);
 
     }
+    
 }
