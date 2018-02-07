@@ -5,7 +5,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class VendingMachineTest {
+/***********************************************************
+ * This class contains all tests associated with the attributes
+ * associated with coins. The test methods ensure that each coins
+ * singleton returns the correct weight, width, thickness and value.
+ **********************************************************/
+
+public class CoinTests {
 
     @Test
     public void readTheWidthAndWeightAndThicknessAndValueOfPenny() throws Exception {
