@@ -96,12 +96,11 @@ public class VendingMachine {
     }
 
     public String displayOutput(ArrayList<Coin> insertedCoins) {
-        if(insertedCoins.isEmpty()){
-            return getInsertCoinLabel();
+        if(!insertedCoins.isEmpty()){
+            for(Coin coin: insertedCoins){
+                return acceptOrRejectCoin(coin);
+            }
         }
-        else {
-            return "COIN PRESENT";
-        }
-
+        return getInsertCoinLabel();
     }
 }
