@@ -24,7 +24,7 @@ public class VendingMachineTests {
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWeightAndWidth() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.isCoinBasedOffWeight(penny.getWeight(), vendingMachine.IS_COIN_A_PENNY);
+        boolean actual = vendingMachine.isCoinBasedOffWeight(penny.getWeight(), VendingMachine.IS_COIN_A_PENNY);
 
         assertEquals("Test Case 2 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
@@ -32,7 +32,7 @@ public class VendingMachineTests {
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWidth() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.isCoinBasedOffWidth(penny.getWidth(), vendingMachine.IS_COIN_A_PENNY);
+        boolean actual = vendingMachine.isCoinBasedOffWidth(penny.getWidth(), VendingMachine.IS_COIN_A_PENNY);
 
         assertEquals("Test Case 3 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
@@ -40,7 +40,7 @@ public class VendingMachineTests {
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsThickness() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.isCoinBasedOffThickness(penny.getThickness(), vendingMachine.IS_COIN_A_PENNY);
+        boolean actual = vendingMachine.isCoinBasedOffThickness(penny.getThickness(), VendingMachine.IS_COIN_A_PENNY);
 
         assertEquals("Test Case 4 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
@@ -48,7 +48,7 @@ public class VendingMachineTests {
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.coinTypeChecker(penny, vendingMachine.IS_COIN_A_PENNY);
+        boolean actual = vendingMachine.coinTypeChecker(penny, VendingMachine.IS_COIN_A_PENNY);
 
         assertEquals("Test Case 5 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
@@ -56,7 +56,7 @@ public class VendingMachineTests {
     @Test
     public void vendingMachineDeterminesIfCoinIsANickelBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.coinTypeChecker(nickel, vendingMachine.IS_COIN_A_NICKEL);
+        boolean actual = vendingMachine.coinTypeChecker(nickel, VendingMachine.IS_COIN_A_NICKEL);
 
         assertEquals("Test Case 6 failed.  Method didn't find the coin to be a nickel", expected, actual);
     }
@@ -64,7 +64,7 @@ public class VendingMachineTests {
     @Test
     public void vendingMachineDeterminesThatACoinIsNotAPenny() throws Exception{
         boolean expected = false;
-        boolean actual = vendingMachine.coinTypeChecker(dime, vendingMachine.IS_COIN_A_PENNY);
+        boolean actual = vendingMachine.coinTypeChecker(dime, VendingMachine.IS_COIN_A_PENNY);
 
         assertEquals("Test Case 7 failed.  Method still thought coin should be a penny", expected, actual);
     }
@@ -72,7 +72,7 @@ public class VendingMachineTests {
     @Test
     public void vendingMachineDeterminesIfCoinIsADimeBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.coinTypeChecker(dime, vendingMachine.IS_COIN_A_DIME);
+        boolean actual = vendingMachine.coinTypeChecker(dime, VendingMachine.IS_COIN_A_DIME);
 
         assertEquals("Test Case 8 failed.  Method didn't find the coin to be a dime", expected, actual);
     }
@@ -81,7 +81,7 @@ public class VendingMachineTests {
     @Test
     public void vendingMachineDeterminesIfCoinIsAQuarterBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.coinTypeChecker(quarter, vendingMachine.IS_COIN_A_QUARTER);
+        boolean actual = vendingMachine.coinTypeChecker(quarter, VendingMachine.IS_COIN_A_QUARTER);
 
         assertEquals("Test Case 9 failed.  Method didn't find the coin to be a dime", expected, actual);
     }
