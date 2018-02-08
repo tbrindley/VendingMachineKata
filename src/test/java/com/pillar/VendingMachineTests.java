@@ -61,4 +61,13 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 6 failed.  Method didn't find the coin to be a nickel", expected, actual);
     }
+
+    @Test
+    public void vendingMachineDeterminesThatACoinIsNotAPenny() throws Exception{
+        Coin nickel = Coin.getDime();
+        boolean expected = false;
+        boolean actual = vendingMachine.coinTypeChecker(nickel, vendingMachine.IS_COIN_A_PENNY);
+
+        assertEquals("Test Case 7 failed.  Method still thought coin should be a penny", expected, actual);
+    }
 }
