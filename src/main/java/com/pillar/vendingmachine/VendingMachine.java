@@ -17,4 +17,11 @@ public class VendingMachine {
         }
         return false;
     }
+
+    public boolean isCoinBasedOffWidth(double width) {
+        if(width == Coin.getPenny().getWidth()){
+            return true;
+        }
+        return false;
+    }
 }

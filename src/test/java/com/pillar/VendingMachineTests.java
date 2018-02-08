@@ -18,11 +18,20 @@ public class VendingMachineTests {
 
     }
     @Test
-    public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWeight() throws Exception{
+    public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWeightAndWidth() throws Exception{
         Coin penny = Coin.getPenny();
         boolean expected = true;
         boolean actual = vendingMachine.isCoinBasedOffWeight(penny.getWeight());
 
         assertEquals("Test Case 2 failed.  Method didn't find the coin to be a penny", expected, actual);
+    }
+
+    @Test
+    public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWidth() throws Exception{
+        Coin penny = Coin.getPenny();
+        boolean expected = true;
+        boolean actual = vendingMachine.isCoinBasedOffWidth(penny.getWidth());
+
+        assertEquals("Test Case 3 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
 }
