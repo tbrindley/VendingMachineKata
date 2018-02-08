@@ -96,11 +96,18 @@ public class VendingMachine {
     }
 
     public String displayOutput(ArrayList<Coin> insertedCoins) {
+        double total = 0;
         if(!insertedCoins.isEmpty()){
             for(Coin coin: insertedCoins){
-                return acceptOrRejectCoin(coin);
+                System.out.println(acceptOrRejectCoin(coin));
+                total += coin.getValue();
+
             }
         }
-        return getInsertCoinLabel();
+        else if(insertedCoins.isEmpty()){
+            return getInsertCoinLabel();
+        }
+        return "total: $" + total;
+
     }
 }

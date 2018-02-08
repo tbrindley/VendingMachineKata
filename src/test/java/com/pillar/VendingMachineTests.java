@@ -139,7 +139,7 @@ public class VendingMachineTests {
     public void vendingMachineAcceptsCoinAndReturnsTotalValue() throws Exception{
         ArrayList<Coin> insertedCoins = new ArrayList<Coin>();
         insertedCoins.add(nickel);
-        String expected = "NICKEL ACCEPTED";
+        String expected = "total: $0.05";
         String actual = vendingMachine.displayOutput(insertedCoins);
 
         assertEquals("Test Case 16 failed.  Vending Machine did not display correct output", expected, actual);
