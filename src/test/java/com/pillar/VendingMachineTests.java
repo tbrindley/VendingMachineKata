@@ -34,4 +34,13 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 3 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
+
+    @Test
+    public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsThickness() throws Exception{
+        Coin penny = Coin.getPenny();
+        boolean expected = true;
+        boolean actual = vendingMachine.isCoinBasedOffThickness(penny.getThickness());
+
+        assertEquals("Test Case 4 failed.  Method didn't find the coin to be a penny", expected, actual);
+    }
 }

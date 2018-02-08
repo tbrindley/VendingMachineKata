@@ -24,4 +24,11 @@ public class VendingMachine {
         }
         return false;
     }
+
+    public boolean isCoinBasedOffThickness(double thickness) {
+        if(thickness == Coin.getPenny().getThickness()){
+            return true;
+        }
+        return false;
+    }
 }
