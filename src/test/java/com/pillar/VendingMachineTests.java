@@ -30,7 +30,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 2 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
-
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWidth() throws Exception{
         boolean expected = true;
@@ -38,7 +37,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 3 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
-
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsThickness() throws Exception{
         boolean expected = true;
@@ -46,7 +44,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 4 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
-
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
@@ -54,7 +51,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 5 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
-
     @Test
     public void vendingMachineDeterminesIfCoinIsANickelBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
@@ -62,7 +58,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 6 failed.  Method didn't find the coin to be a nickel", expected, actual);
     }
-
     @Test
     public void vendingMachineDeterminesThatACoinIsNotAPenny() throws Exception{
         boolean expected = false;
@@ -70,7 +65,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 7 failed.  Method still thought coin should be a penny", expected, actual);
     }
-
     @Test
     public void vendingMachineDeterminesIfCoinIsADimeBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
@@ -78,8 +72,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 8 failed.  Method didn't find the coin to be a dime", expected, actual);
     }
-
-
     @Test
     public void vendingMachineDeterminesIfCoinIsAQuarterBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
@@ -87,7 +79,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 9 failed.  Method didn't find the coin to be a dime", expected, actual);
     }
-
     @Test
     public void vendingMachineReadsCoinAsPennyAndRejectsIt() throws Exception{
         String expected = "THIS MACHINE DOES NOT ACCEPT PENNIES";
@@ -116,7 +107,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 13 failed.  Coin was not accepted", expected, actual);
     }
-
     @Test
     public void vendingMachineRejectsAllOtherCoins() throws Exception{
         Coin junkCoin = new Coin(2.2, 22.21, 1.95, 0);
@@ -125,7 +115,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 14 failed.  Coin was accepted", expected, actual);
     }
-
     @Test
     public void vendingMachineReturnsInsertCoinBecauseNoValidCoinIsCurrentlyInMachine() throws Exception{
         ArrayList<Coin> insertedCoins = new ArrayList<Coin>();
@@ -134,7 +123,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 15 failed.  Vending Machine did not display correct output", expected, actual);
     }
-
     @Test
     public void vendingMachineAcceptsCoinAndReturnsTotalValue() throws Exception{
         ArrayList<Coin> insertedCoins = new ArrayList<Coin>();
@@ -144,7 +132,6 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 16 failed.  Vending Machine did not display correct output", expected, actual);
     }
-
     @Test
     public void vendingMachineAcceptsAllCoinsButPenniesAndReturnsTotalValue() throws Exception{
         ArrayList<Coin> insertedCoins = new ArrayList<Coin>();
@@ -157,6 +144,20 @@ public class VendingMachineTests {
         String actual = vendingMachine.displayOutput(insertedCoins);
 
         assertEquals("Test Case 17 failed.  Vending Machine did not display correct output", expected, actual);
+    }
+    @Test
+    public void vendingMachineReturnsInsertCoinAfterRejectingPennyOrJunkCoins() throws Exception{
+        Coin junkCoin = new Coin(2.2, 22.21, 1.95, 0);
+        ArrayList<Coin> insertedCoins = new ArrayList<Coin>();
+        insertedCoins.add(penny);
+        insertedCoins.add(junkCoin);
+        insertedCoins.add(penny);
+        insertedCoins.add(junkCoin);
+
+        String expected = "INSERT COIN";
+        String actual = vendingMachine.displayOutput(insertedCoins);
+
+        assertEquals("Test Case 18 failed.  Vending Machine did not display correct output", expected, actual);
     }
 
 }

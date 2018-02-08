@@ -107,7 +107,7 @@ public class VendingMachine {
                 }
             }
         }
-        else if(insertedCoins.isEmpty()){
+        if(insertedCoins.isEmpty() || total == 0){
             return getInsertCoinLabel();
         }
         return "total: $" + coinFormat.format(total);
