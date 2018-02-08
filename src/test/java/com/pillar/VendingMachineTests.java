@@ -80,4 +80,13 @@ public class VendingMachineTests {
         assertEquals("Test Case 8 failed.  Method didn't find the coin to be a dime", expected, actual);
     }
 
+
+    @Test
+    public void vendingMachineDeterminesIfCoinIsAQuarterBasedOffItsWeightWidthAndThickness() throws Exception{
+        Coin quarter = Coin.getQuarter();
+        boolean expected = true;
+        boolean actual = vendingMachine.coinTypeChecker(quarter, vendingMachine.IS_COIN_A_QUARTER);
+
+        assertEquals("Test Case 9 failed.  Method didn't find the coin to be a dime", expected, actual);
+    }
 }

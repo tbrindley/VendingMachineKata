@@ -9,6 +9,7 @@ public class VendingMachine {
     public static int IS_COIN_A_PENNY = 1;
     public static int IS_COIN_A_NICKEL = 2;
     public static int IS_COIN_A_DIME = 3;
+    public static int IS_COIN_A_QUARTER = 4;
 
     public String getInsertCoinLabel() {
         return "INSERT COIN";
@@ -24,6 +25,9 @@ public class VendingMachine {
         else if(coinType == IS_COIN_A_DIME){
             return weight == Coin.getDime().getWeight();
         }
+        else if(coinType == IS_COIN_A_QUARTER){
+            return weight == Coin.getQuarter().getWeight();
+        }
         return false;
 
     }
@@ -38,6 +42,9 @@ public class VendingMachine {
         else if(coinType == IS_COIN_A_DIME){
             return width == Coin.getDime().getWidth();
         }
+        else if(coinType == IS_COIN_A_QUARTER){
+            return width == Coin.getQuarter().getWidth();
+        }
         return false;
 
     }
@@ -51,6 +58,9 @@ public class VendingMachine {
         }
         else if(coinType == IS_COIN_A_DIME){
             return thickness == Coin.getDime().getThickness();
+        }
+        else if(coinType == IS_COIN_A_QUARTER){
+            return thickness == Coin.getQuarter().getThickness();
         }
         return false;
 
