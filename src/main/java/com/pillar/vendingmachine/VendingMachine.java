@@ -8,6 +8,7 @@ import com.pillar.coins.Coin;
 public class VendingMachine {
     public static int IS_COIN_A_PENNY = 1;
     public static int IS_COIN_A_NICKEL = 2;
+    public static int IS_COIN_A_DIME = 3;
 
     public String getInsertCoinLabel() {
         return "INSERT COIN";
@@ -20,6 +21,9 @@ public class VendingMachine {
         else if(coinType == IS_COIN_A_NICKEL){
             return weight == Coin.getNickel().getWeight();
         }
+        else if(coinType == IS_COIN_A_DIME){
+            return weight == Coin.getDime().getWeight();
+        }
         return false;
 
     }
@@ -31,6 +35,9 @@ public class VendingMachine {
         else if(coinType == IS_COIN_A_NICKEL){
             return width == Coin.getNickel().getWidth();
         }
+        else if(coinType == IS_COIN_A_DIME){
+            return width == Coin.getDime().getWidth();
+        }
         return false;
 
     }
@@ -41,6 +48,9 @@ public class VendingMachine {
         }
         else if(coinType == IS_COIN_A_NICKEL){
             return thickness == Coin.getNickel().getThickness();
+        }
+        else if(coinType == IS_COIN_A_DIME){
+            return thickness == Coin.getDime().getThickness();
         }
         return false;
 
