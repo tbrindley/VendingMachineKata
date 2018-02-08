@@ -115,6 +115,15 @@ public class VendingMachineTests {
         assertEquals("Test Case 13 failed.  Coin was not accepted", expected, actual);
     }
 
+    @Test
+    public void vendingMachineRejectsAllOtherCoins() throws Exception{
+        Coin junkCoin = new Coin(2.2, 22.21, 1.95, 0);
+        String expected = "COIN NOT ACCEPTED";
+        String actual = vendingMachine.acceptOrRejectCoin(junkCoin);
+
+        assertEquals("Test Case 14 failed.  Coin was accepted", expected, actual);
+    }
+
 
 
 }
