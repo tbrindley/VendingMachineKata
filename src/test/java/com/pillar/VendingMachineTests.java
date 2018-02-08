@@ -4,6 +4,8 @@ import com.pillar.coins.Coin;
 import com.pillar.vendingmachine.VendingMachine;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class VendingMachineTests {
@@ -122,6 +124,15 @@ public class VendingMachineTests {
         String actual = vendingMachine.acceptOrRejectCoin(junkCoin);
 
         assertEquals("Test Case 14 failed.  Coin was accepted", expected, actual);
+    }
+
+    @Test
+    public void vendingMachineReturnsInsertCoinBecauseNoValidCoinIsCurrentlyInMachine() throws Exception{
+        ArrayList<Coin> insertedCoins = new ArrayList<Coin>();
+        String expected = "INSERT COIN";
+        String actual = vendingMachine.displayOutput(insertedCoins);
+
+        assertEquals("Test Case 15 failed.  Vending Machine did not display correct output", expected, actual);
     }
 
 

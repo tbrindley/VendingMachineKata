@@ -2,6 +2,8 @@ package com.pillar.vendingmachine;
 
 import com.pillar.coins.Coin;
 
+import java.util.ArrayList;
+
 /**
  * Created by Travis Brindley on 2/6/2018.
  */
@@ -77,7 +79,6 @@ public class VendingMachine {
 
     }
 
-
     public String acceptOrRejectCoin(Coin coin) {
         if(coinTypeChecker(coin,IS_COIN_A_PENNY)){
             return "THIS MACHINE DOES NOT ACCEPT PENNIES";
@@ -92,5 +93,15 @@ public class VendingMachine {
             return "QUARTER ACCEPTED";
         }
         return "COIN NOT ACCEPTED";
+    }
+
+    public String displayOutput(ArrayList<Coin> insertedCoins) {
+        if(insertedCoins.isEmpty()){
+            return getInsertCoinLabel();
+        }
+        else {
+            return "COIN PRESENT";
+        }
+
     }
 }
