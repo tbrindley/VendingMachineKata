@@ -78,4 +78,10 @@ public class VendingMachine {
     }
 
 
+    public String acceptOrRejectCoin(Coin coin) {
+        if(coinTypeChecker(coin,IS_COIN_A_PENNY)){
+            return "THIS MACHINE DOES NOT ACCEPT PENNIES";
+        }
+        return "COIN NOT ACCEPTED";
+    }
 }

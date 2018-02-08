@@ -8,6 +8,10 @@ import static org.junit.Assert.assertEquals;
 
 public class VendingMachineTests {
     private VendingMachine vendingMachine = new VendingMachine();
+    private Coin penny = Coin.getPenny();
+    private Coin nickel = Coin.getNickel();
+    private Coin dime = Coin.getDime();
+    private Coin quarter = Coin.getQuarter();
     @Test
     public void vendingMachineDisplaysTextThatSaysInsertCoin() throws Exception {
 
@@ -19,7 +23,6 @@ public class VendingMachineTests {
     }
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWeightAndWidth() throws Exception{
-        Coin penny = Coin.getPenny();
         boolean expected = true;
         boolean actual = vendingMachine.isCoinBasedOffWeight(penny.getWeight(), vendingMachine.IS_COIN_A_PENNY);
 
@@ -28,7 +31,6 @@ public class VendingMachineTests {
 
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWidth() throws Exception{
-        Coin penny = Coin.getPenny();
         boolean expected = true;
         boolean actual = vendingMachine.isCoinBasedOffWidth(penny.getWidth(), vendingMachine.IS_COIN_A_PENNY);
 
@@ -37,7 +39,6 @@ public class VendingMachineTests {
 
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsThickness() throws Exception{
-        Coin penny = Coin.getPenny();
         boolean expected = true;
         boolean actual = vendingMachine.isCoinBasedOffThickness(penny.getThickness(), vendingMachine.IS_COIN_A_PENNY);
 
@@ -46,7 +47,6 @@ public class VendingMachineTests {
 
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWeightWidthAndThickness() throws Exception{
-        Coin penny = Coin.getPenny();
         boolean expected = true;
         boolean actual = vendingMachine.coinTypeChecker(penny, vendingMachine.IS_COIN_A_PENNY);
 
@@ -55,7 +55,6 @@ public class VendingMachineTests {
 
     @Test
     public void vendingMachineDeterminesIfCoinIsANickelBasedOffItsWeightWidthAndThickness() throws Exception{
-        Coin nickel = Coin.getNickel();
         boolean expected = true;
         boolean actual = vendingMachine.coinTypeChecker(nickel, vendingMachine.IS_COIN_A_NICKEL);
 
@@ -64,7 +63,6 @@ public class VendingMachineTests {
 
     @Test
     public void vendingMachineDeterminesThatACoinIsNotAPenny() throws Exception{
-        Coin dime = Coin.getDime();
         boolean expected = false;
         boolean actual = vendingMachine.coinTypeChecker(dime, vendingMachine.IS_COIN_A_PENNY);
 
@@ -73,7 +71,6 @@ public class VendingMachineTests {
 
     @Test
     public void vendingMachineDeterminesIfCoinIsADimeBasedOffItsWeightWidthAndThickness() throws Exception{
-        Coin dime = Coin.getDime();
         boolean expected = true;
         boolean actual = vendingMachine.coinTypeChecker(dime, vendingMachine.IS_COIN_A_DIME);
 
@@ -83,10 +80,17 @@ public class VendingMachineTests {
 
     @Test
     public void vendingMachineDeterminesIfCoinIsAQuarterBasedOffItsWeightWidthAndThickness() throws Exception{
-        Coin quarter = Coin.getQuarter();
         boolean expected = true;
         boolean actual = vendingMachine.coinTypeChecker(quarter, vendingMachine.IS_COIN_A_QUARTER);
 
         assertEquals("Test Case 9 failed.  Method didn't find the coin to be a dime", expected, actual);
+    }
+
+    @Test
+    public void vendingMachineReadsCoinAsPennyAndRejectsIt() throws Exception{
+        String expected = "THIS MACHINE DOES NOT ACCEPT PENNIES";
+        String actual = vendingMachine.acceptOrRejectCoin(penny);
+
+        assertEquals("Test Case 10 failed.  Coin was accepted", expected, actual);
     }
 }
