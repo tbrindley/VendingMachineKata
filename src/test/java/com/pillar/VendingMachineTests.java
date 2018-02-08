@@ -145,5 +145,18 @@ public class VendingMachineTests {
         assertEquals("Test Case 16 failed.  Vending Machine did not display correct output", expected, actual);
     }
 
+    @Test
+    public void vendingMachineAcceptsAllCoinsButPenniesAndReturnsTotalValue() throws Exception{
+        ArrayList<Coin> insertedCoins = new ArrayList<Coin>();
+        insertedCoins.add(nickel);
+        insertedCoins.add(dime);
+        insertedCoins.add(penny);
+        insertedCoins.add(quarter);
+
+        String expected = "total: $0.40";
+        String actual = vendingMachine.displayOutput(insertedCoins);
+
+        assertEquals("Test Case 17 failed.  Vending Machine did not display correct output", expected, actual);
+    }
 
 }

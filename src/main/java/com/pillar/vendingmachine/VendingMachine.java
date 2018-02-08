@@ -2,12 +2,14 @@ package com.pillar.vendingmachine;
 
 import com.pillar.coins.Coin;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
  * Created by Travis Brindley on 2/6/2018.
  */
 public class VendingMachine {
+    private static DecimalFormat coinFormat = new DecimalFormat("0.00");
     public static int IS_COIN_A_PENNY = 1;
     public static int IS_COIN_A_NICKEL = 2;
     public static int IS_COIN_A_DIME = 3;
@@ -100,14 +102,15 @@ public class VendingMachine {
         if(!insertedCoins.isEmpty()){
             for(Coin coin: insertedCoins){
                 System.out.println(acceptOrRejectCoin(coin));
-                total += coin.getValue();
-
+                if(!coinTypeChecker(coin, IS_COIN_A_PENNY)){
+                    total += coin.getValue();
+                }
             }
         }
         else if(insertedCoins.isEmpty()){
             return getInsertCoinLabel();
         }
-        return "total: $" + total;
+        return "total: $" + coinFormat.format(total);
 
     }
 }
