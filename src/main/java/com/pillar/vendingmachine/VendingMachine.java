@@ -82,6 +82,9 @@ public class VendingMachine {
         if(coinTypeChecker(coin,IS_COIN_A_PENNY)){
             return "THIS MACHINE DOES NOT ACCEPT PENNIES";
         }
+        else if(coinTypeChecker(coin,IS_COIN_A_NICKEL)){
+            return "NICKEL ACCEPTED";
+        }
         return "COIN NOT ACCEPTED";
     }
 }
