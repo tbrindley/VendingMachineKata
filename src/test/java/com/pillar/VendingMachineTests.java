@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class VendingMachineTests {
-    VendingMachine vendingMachine = new VendingMachine();
+    private VendingMachine vendingMachine = new VendingMachine();
     @Test
     public void vendingMachineDisplaysTextThatSaysInsertCoin() throws Exception {
 
@@ -42,5 +42,14 @@ public class VendingMachineTests {
         boolean actual = vendingMachine.isCoinBasedOffThickness(penny.getThickness());
 
         assertEquals("Test Case 4 failed.  Method didn't find the coin to be a penny", expected, actual);
+    }
+
+    @Test
+    public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWeightWidthAndThickness() throws Exception{
+        Coin penny = Coin.getPenny();
+        boolean expected = true;
+        boolean actual = vendingMachine.isCoinAPenny(penny);
+
+        assertEquals("Test Case 5 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
 }
