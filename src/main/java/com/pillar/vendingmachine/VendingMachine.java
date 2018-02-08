@@ -13,24 +13,16 @@ public class VendingMachine {
     }
 
     public boolean isCoinBasedOffWeight(double weight) {
-        if(weight == Coin.getPenny().getWeight()){
-            return true;
-        }
-        return false;
+        return weight == Coin.getPenny().getWeight();
     }
 
     public boolean isCoinBasedOffWidth(double width) {
-        if(width == Coin.getPenny().getWidth()){
-            return true;
-        }
-        return false;
+       return width == Coin.getPenny().getWidth();
     }
 
     public boolean isCoinBasedOffThickness(double thickness) {
-        if(thickness == Coin.getPenny().getThickness()){
-            return true;
-        }
-        return false;
+        return thickness == Coin.getPenny().getThickness();
+
     }
 
     public boolean isCoinAPenny(Coin potentialPenny) {
