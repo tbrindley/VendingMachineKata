@@ -107,6 +107,13 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 12 failed.  Coin was not accepted", expected, actual);
     }
+    @Test
+    public void vendingMachineReadsCoinAsQuarterAndAcceptsIt() throws Exception{
+        String expected = "QUARTER ACCEPTED";
+        String actual = vendingMachine.acceptOrRejectCoin(quarter);
+
+        assertEquals("Test Case 13 failed.  Coin was not accepted", expected, actual);
+    }
 
 
 

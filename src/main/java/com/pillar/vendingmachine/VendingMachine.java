@@ -88,6 +88,9 @@ public class VendingMachine {
         else if(coinTypeChecker(coin,IS_COIN_A_DIME)){
             return "DIME ACCEPTED";
         }
+        else if(coinTypeChecker(coin,IS_COIN_A_QUARTER)){
+            return "QUARTER ACCEPTED";
+        }
         return "COIN NOT ACCEPTED";
     }
 }
