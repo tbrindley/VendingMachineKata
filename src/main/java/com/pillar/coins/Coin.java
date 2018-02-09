@@ -45,7 +45,7 @@ public class Coin extends CoinAbstract {
         return super.getValue();
     }
 
-    @Override
+
     public void setValue(double value) {
         super.setValue(value);
     }

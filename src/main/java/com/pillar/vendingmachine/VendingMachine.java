@@ -5,9 +5,7 @@ import com.pillar.coins.Coin;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-/**
- * Created by Travis Brindley on 2/6/2018.
- */
+
 public class VendingMachine {
     private static DecimalFormat coinFormat = new DecimalFormat("0.00");
     public static int IS_COIN_A_PENNY = 1;

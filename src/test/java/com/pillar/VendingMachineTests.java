@@ -3,17 +3,23 @@ package com.pillar;
 import com.pillar.coins.Coin;
 import com.pillar.vendingmachine.VendingMachine;
 import org.junit.Test;
-
 import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
 
+/****************************************************
+ * The following tests ensure the vending machine is able to function correctly.
+ * These tests ensure the machine is able to read coins correctly, display output, dispense change,
+ * and keep track of inventory.
+ ***************************************************/
+
 public class VendingMachineTests {
+
     private VendingMachine vendingMachine = new VendingMachine();
     private Coin penny = Coin.getPenny();
     private Coin nickel = Coin.getNickel();
     private Coin dime = Coin.getDime();
     private Coin quarter = Coin.getQuarter();
+
     @Test
     public void vendingMachineDisplaysTextThatSaysInsertCoin() throws Exception {
 
