@@ -46,4 +46,8 @@ public class Product extends ProductAbstract {
     public static Product getCola() {
         return new Product(1.00, 10, "Cola");
     }
+
+    public static Product getChips() {
+        return new Product(0.65, 13, "Chips");
+    }
 }

@@ -31,4 +31,21 @@ public class ProductTests {
 
     }
 
+    @Test
+    public void testToMakeSureChipsAttributesAreSetAndReturnedCorrectly() throws Exception {
+        Product chips = Product.getChips();
+        double expectedPrice = 0.65;
+        double actualPrice = chips.getPrice();
+
+        int expectedQuantity = 13;
+        int actualQuantity = chips.getQuantityInStock();
+
+        String expectedName = "Chips";
+        String actualName = chips.getName();
+
+        assertEquals("TestCase 1, Part 1 Failed:  Price didn't match",expectedPrice, actualPrice, 0.001);
+        assertEquals("TestCase 1, Part 2 Failed:  Quantity didn't match",expectedQuantity, actualQuantity, 0.001);
+        assertEquals("TestCase 1, Part 3 Failed:  Name didn't match",expectedName, actualName);
+
+    }
 }
