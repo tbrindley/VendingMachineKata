@@ -171,6 +171,12 @@ public class VendingMachineTests {
         String actual = vendingMachine.selectProduct(VendingMachine.COLA_SELECTED);
 
         assertEquals("Test Case 19 failed.  Vending machine didn't return a product", expected,actual);
+    }    @Test
+    public void vendingMachineAllowsConsumerToSelectChips(){
+        String expected = "CHIPS PURCHASED";
+        String actual = vendingMachine.selectProduct(VendingMachine.CHIPS_SELECTED);
+
+        assertEquals("Test Case 20 failed.  Vending machine didn't return a product", expected,actual);
     }
 
 }
