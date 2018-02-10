@@ -23,6 +23,7 @@ abstract class ProductAbstract {
     public void setQuantityInStock(int quantityInStock) {
         this.quantityInStock = quantityInStock;
     }
+
     public String getName() {
         return name;
     }

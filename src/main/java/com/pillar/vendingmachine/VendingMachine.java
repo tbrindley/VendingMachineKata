@@ -8,10 +8,11 @@ import java.util.ArrayList;
 
 public class VendingMachine {
     private static DecimalFormat coinFormat = new DecimalFormat("0.00");
-    public static int IS_COIN_A_PENNY = 1;
-    public static int IS_COIN_A_NICKEL = 2;
-    public static int IS_COIN_A_DIME = 3;
-    public static int IS_COIN_A_QUARTER = 4;
+    public static final int IS_COIN_A_PENNY = 1;
+    public static final int IS_COIN_A_NICKEL = 2;
+    public static final int IS_COIN_A_DIME = 3;
+    public static final int IS_COIN_A_QUARTER = 4;
+    public static final String COLA_SELECTED = "cola";
 
     public String getInsertCoinLabel() {
         return "INSERT COIN";
@@ -110,5 +111,12 @@ public class VendingMachine {
         }
         return "total: $" + coinFormat.format(total);
 
+    }
+
+    public String selectProduct(String productSelection) {
+        if(productSelection.equals(COLA_SELECTED)){
+            return "COLA PURCHASED";
+        }
+        return "INVALID SELECTION";
     }
 }

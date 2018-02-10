@@ -165,5 +165,12 @@ public class VendingMachineTests {
 
         assertEquals("Test Case 18 failed.  Vending Machine did not display correct output", expected, actual);
     }
+    @Test
+    public void vendingMachineAllowsConsumerToSelectACola(){
+        String expected = "COLA PURCHASED";
+        String actual = vendingMachine.selectProduct(VendingMachine.COLA_SELECTED);
+
+        assertEquals("Test Case 19 failed.  Vending machine didn't return a product", expected,actual);
+    }
 
 }
