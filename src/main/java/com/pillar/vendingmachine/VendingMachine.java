@@ -14,6 +14,7 @@ public class VendingMachine {
     public static final int IS_COIN_A_QUARTER = 4;
     public static final String COLA_SELECTED = "cola";
     public static final String CHIPS_SELECTED = "chips";
+    public static final String CANDY_SELECTED = "candy";
 
     public String getInsertCoinLabel() {
         return "INSERT COIN";
@@ -121,6 +122,9 @@ public class VendingMachine {
         }
         else if(productSelection.equals(CHIPS_SELECTED)){
             return "CHIPS PURCHASED";
+        }
+        else if(productSelection.equals(CANDY_SELECTED)){
+            return "CANDY PURCHASED";
         }
         return "INVALID SELECTION";
     }
