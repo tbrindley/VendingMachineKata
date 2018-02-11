@@ -7,6 +7,9 @@ public class Product extends ProductAbstract {
     public static final String COLA_SELECTED = getCola().getName();
     public static final String CHIPS_SELECTED = getChips().getName();
     public static final String CANDY_SELECTED = getCandy().getName();
+    private static Product cola = null;
+    private static Product candy = null;
+    private static Product chips = null;
 
     public Product() {
     }
@@ -47,15 +50,24 @@ public class Product extends ProductAbstract {
     }
 
     public static Product getCola() {
-        return new Product(1.00, 10, "Cola");
+        if(cola == null){
+            cola = new Product(1.00, 10, "Cola");
+        }
+        return cola;
     }
 
     public static Product getChips() {
-        return new Product(0.50, 13, "Chips");
+        if(chips == null){
+            chips = new Product(0.50, 13, "Chips");
+        }
+        return chips;
     }
 
     public static Product getCandy() {
-        return new Product(0.65, 15, "Candy");
+        if(candy == null){
+            candy = new Product(0.65, 15, "Candy");
+        }
+        return candy;
     }
 
     public static Product getProductByName(String productName){

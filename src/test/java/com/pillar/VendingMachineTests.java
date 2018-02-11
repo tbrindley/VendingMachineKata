@@ -20,6 +20,7 @@ public class VendingMachineTests {
     private Coin nickel = Coin.getNickel();
     private Coin dime = Coin.getDime();
     private Coin quarter = Coin.getQuarter();
+    private Product candy = Product.getCandy();
 
     @Test
     public void vendingMachineDisplaysTextThatSaysInsertCoin() throws Exception {
@@ -236,10 +237,18 @@ public class VendingMachineTests {
     @Test
     public void vendingMachineWillCheckTheInventoryOfAProductBeforePurchase() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.hasInventory(Product.CANDY_SELECTED);
+        boolean actual = vendingMachine.hasInventory(Product.COLA_SELECTED);
 
         assertEquals("Test Case 26 failed.  Vending Machine didn't find any inventory in stock", expected, actual);
+    }
 
+    @Test
+    public void vendingMachineWillReturnSoldOutIfThereIsNoInventory() throws Exception{
+        String expected = "SOLD OUT";
+        candy.setQuantityInStock(0);
+        String actual = vendingMachine.selectProduct(Product.CANDY_SELECTED);
+
+        assertEquals("Test Case 27 failed.  Vending Machine still made purchase despite no inventory", expected, actual);
     }
 
 }

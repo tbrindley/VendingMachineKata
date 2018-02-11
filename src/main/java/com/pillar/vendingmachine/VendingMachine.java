@@ -115,17 +115,19 @@ public class VendingMachine {
     }
 
     public String selectProduct(String productSelection) {
-
-        if(productSelection.equals(Product.COLA_SELECTED)){
-            return "COLA PURCHASED";
+        if(hasInventory(productSelection)){
+            if(productSelection.equals(Product.COLA_SELECTED)){
+                return "COLA PURCHASED";
+            }
+            else if(productSelection.equals(Product.CHIPS_SELECTED)){
+                return "CHIPS PURCHASED";
+            }
+            else if(productSelection.equals(Product.CANDY_SELECTED)){
+                return "CANDY PURCHASED";
+            }
+            return "INVALID SELECTION";
         }
-        else if(productSelection.equals(Product.CHIPS_SELECTED)){
-            return "CHIPS PURCHASED";
-        }
-        else if(productSelection.equals(Product.CANDY_SELECTED)){
-            return "CANDY PURCHASED";
-        }
-        return "INVALID SELECTION";
+        return "SOLD OUT";
     }
 
     public String makePurchase(ArrayList<Coin> coins, String productSelected) {
