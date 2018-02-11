@@ -1,6 +1,11 @@
 package com.pillar.coins;
 
 public class Coin extends CoinAbstract {
+    public static final int IS_COIN_A_PENNY = 1;
+    public static final int IS_COIN_A_NICKEL = 2;
+    public static final int IS_COIN_A_DIME = 3;
+    public static final int IS_COIN_A_QUARTER = 4;
+
     public Coin() {
     }
     public Coin(double weight, double width, double thickness, double value){

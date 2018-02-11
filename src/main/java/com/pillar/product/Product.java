@@ -4,6 +4,9 @@ package com.pillar.product;
  * Created by Travis Brindley on 2/8/2018.
  */
 public class Product extends ProductAbstract {
+    public static final String COLA_SELECTED = getCola().getName();
+    public static final String CHIPS_SELECTED = getChips().getName();
+    public static final String CANDY_SELECTED = getCandy().getName();
 
     public Product() {
     }
@@ -53,5 +56,18 @@ public class Product extends ProductAbstract {
 
     public static Product getCandy() {
         return new Product(0.65, 15, "Candy");
+    }
+
+    public static Product getProductByName(String productName){
+        if(productName.equals(COLA_SELECTED)){
+            return getCola();
+        }
+        else if(productName.equals(CHIPS_SELECTED)){
+            return getChips();
+        }
+        else if(productName.equals(CANDY_SELECTED)){
+            return getCandy();
+        }
+        return null;
     }
 }

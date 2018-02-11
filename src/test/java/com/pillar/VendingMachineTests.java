@@ -1,6 +1,7 @@
 package com.pillar;
 
 import com.pillar.coins.Coin;
+import com.pillar.product.Product;
 import com.pillar.vendingmachine.VendingMachine;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -32,56 +33,56 @@ public class VendingMachineTests {
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWeightAndWidth() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.isCoinBasedOffWeight(penny.getWeight(), VendingMachine.IS_COIN_A_PENNY);
+        boolean actual = vendingMachine.isCoinBasedOffWeight(penny.getWeight(), Coin.IS_COIN_A_PENNY);
 
         assertEquals("Test Case 2 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWidth() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.isCoinBasedOffWidth(penny.getWidth(), VendingMachine.IS_COIN_A_PENNY);
+        boolean actual = vendingMachine.isCoinBasedOffWidth(penny.getWidth(), Coin.IS_COIN_A_PENNY);
 
         assertEquals("Test Case 3 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsThickness() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.isCoinBasedOffThickness(penny.getThickness(), VendingMachine.IS_COIN_A_PENNY);
+        boolean actual = vendingMachine.isCoinBasedOffThickness(penny.getThickness(), Coin.IS_COIN_A_PENNY);
 
         assertEquals("Test Case 4 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
     @Test
     public void vendingMachineDeterminesIfCoinIsAPennyBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.coinTypeChecker(penny, VendingMachine.IS_COIN_A_PENNY);
+        boolean actual = vendingMachine.coinTypeChecker(penny, Coin.IS_COIN_A_PENNY);
 
         assertEquals("Test Case 5 failed.  Method didn't find the coin to be a penny", expected, actual);
     }
     @Test
     public void vendingMachineDeterminesIfCoinIsANickelBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.coinTypeChecker(nickel, VendingMachine.IS_COIN_A_NICKEL);
+        boolean actual = vendingMachine.coinTypeChecker(nickel, Coin.IS_COIN_A_NICKEL);
 
         assertEquals("Test Case 6 failed.  Method didn't find the coin to be a nickel", expected, actual);
     }
     @Test
     public void vendingMachineDeterminesThatACoinIsNotAPenny() throws Exception{
         boolean expected = false;
-        boolean actual = vendingMachine.coinTypeChecker(dime, VendingMachine.IS_COIN_A_PENNY);
+        boolean actual = vendingMachine.coinTypeChecker(dime, Coin.IS_COIN_A_PENNY);
 
         assertEquals("Test Case 7 failed.  Method still thought coin should be a penny", expected, actual);
     }
     @Test
     public void vendingMachineDeterminesIfCoinIsADimeBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.coinTypeChecker(dime, VendingMachine.IS_COIN_A_DIME);
+        boolean actual = vendingMachine.coinTypeChecker(dime, Coin.IS_COIN_A_DIME);
 
         assertEquals("Test Case 8 failed.  Method didn't find the coin to be a dime", expected, actual);
     }
     @Test
     public void vendingMachineDeterminesIfCoinIsAQuarterBasedOffItsWeightWidthAndThickness() throws Exception{
         boolean expected = true;
-        boolean actual = vendingMachine.coinTypeChecker(quarter, VendingMachine.IS_COIN_A_QUARTER);
+        boolean actual = vendingMachine.coinTypeChecker(quarter, Coin.IS_COIN_A_QUARTER);
 
         assertEquals("Test Case 9 failed.  Method didn't find the coin to be a dime", expected, actual);
     }
@@ -168,23 +169,35 @@ public class VendingMachineTests {
     @Test
     public void vendingMachineAllowsConsumerToSelectACola(){
         String expected = "COLA PURCHASED";
-        String actual = vendingMachine.selectProduct(VendingMachine.COLA_SELECTED);
+        String actual = vendingMachine.selectProduct(Product.COLA_SELECTED);
 
         assertEquals("Test Case 19 failed.  Vending machine didn't return a product", expected,actual);
     }
     @Test
     public void vendingMachineAllowsConsumerToSelectChips(){
         String expected = "CHIPS PURCHASED";
-        String actual = vendingMachine.selectProduct(VendingMachine.CHIPS_SELECTED);
+        String actual = vendingMachine.selectProduct(Product.CHIPS_SELECTED);
 
         assertEquals("Test Case 20 failed.  Vending machine didn't return a product", expected,actual);
     }
     @Test
     public void vendingMachineAllowsConsumerToSelectCandy(){
         String expected = "CANDY PURCHASED";
-        String actual = vendingMachine.selectProduct(VendingMachine.CANDY_SELECTED);
+        String actual = vendingMachine.selectProduct(Product.CANDY_SELECTED);
 
         assertEquals("Test Case 21 failed.  Vending machine didn't return a product", expected,actual);
+    }
+    @Test
+    public void vendingMachineMakesPurchaseIfConsumerHasEnoughMoneyInMachine() throws Exception{
+        ArrayList<Coin> coins = new ArrayList<Coin>();
+        coins.add(quarter);
+        coins.add(quarter);
+        coins.add(quarter);
+
+        String candyExpected = "THANK YOU";
+        String candyActual = vendingMachine.makePurchase(coins, Product.CANDY_SELECTED);
+
+        assertEquals("Test Case 22 failed.  Vending Machine didn't make the purchase", candyExpected, candyActual);
     }
 
 }
