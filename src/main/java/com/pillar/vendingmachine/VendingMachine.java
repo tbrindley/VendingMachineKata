@@ -130,7 +130,6 @@ public class VendingMachine {
         return "INVALID SELECTION";
     }
 
-
     public String makePurchase(ArrayList<Coin> coins, String productSelected) {
     double total = acceptedCoinTotal(coins);
     Product product = Product.getProductByName(productSelected);
@@ -140,5 +139,11 @@ public class VendingMachine {
     }
     return "PRICE";
 
+    }
+    public double returnChange(double totalInserted, double productPrice ){
+        if(totalInserted >= productPrice){
+            return totalInserted - productPrice;
+        }
+        return totalInserted;
     }
 }

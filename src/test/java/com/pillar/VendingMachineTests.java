@@ -205,5 +205,11 @@ public class VendingMachineTests {
         assertEquals("Test Case 22, part 2 failed.  Vending Machine allowed an invalid purchase", colaExpected, colaActual);
         assertEquals("Test Case 22, part 3 failed.  Vending Machine didn't make the purchase", chipsExpected, chipsActual);
     }
+    @Test
+    public void vendingMachineReturnsChangeAmount(){
+        double expected = .5;
+        double actual = vendingMachine.returnChange(1.00, .50);
+        assertEquals("Test Case 23 failed.  Vending machine returned incorrect Change", expected,actual, .001);
+    }
 
 }
