@@ -196,8 +196,14 @@ public class VendingMachineTests {
 
         String candyExpected = "THANK YOU";
         String candyActual = vendingMachine.makePurchase(coins, Product.CANDY_SELECTED);
+        String colaExpected = "PRICE";
+        String colaActual = vendingMachine.makePurchase(coins, Product.COLA_SELECTED);
+        String chipsExpected = "THANK YOU";
+        String chipsActual = vendingMachine.makePurchase(coins, Product.CHIPS_SELECTED);
 
-        assertEquals("Test Case 22 failed.  Vending Machine didn't make the purchase", candyExpected, candyActual);
+        assertEquals("Test Case 22, part 1 failed.  Vending Machine didn't make the purchase", candyExpected, candyActual);
+        assertEquals("Test Case 22, part 2 failed.  Vending Machine allowed an invalid purchase", colaExpected, colaActual);
+        assertEquals("Test Case 22, part 3 failed.  Vending Machine didn't make the purchase", chipsExpected, chipsActual);
     }
 
 }
