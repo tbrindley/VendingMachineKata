@@ -216,7 +216,22 @@ public class VendingMachineTests {
     public void vendingMachineTurnsExpectedChangeAmountIntoCoins(){
         String expected = "RETURNED 2 quarters";
         String actual = vendingMachine.makeCorrectChange(.50);
-        assertEquals("Test Case 23 failed.  Vending machine returned incorrect Change", expected,actual);
+        assertEquals("Test Case 24 failed.  Vending machine returned incorrect Change", expected,actual);
     }
+    @Test
+    public void vendingMachineReturnsCoinsWhenReturnIsRequested() throws Exception{
+        ArrayList<Coin> insertedCoins = new ArrayList<Coin>();
+        insertedCoins.add(quarter);
+        insertedCoins.add(dime);
+        insertedCoins.add(nickel);
+        insertedCoins.add(quarter);
+
+        boolean expected = true;
+        insertedCoins = vendingMachine.returnInsertedCoins(insertedCoins);
+        boolean actual =insertedCoins.isEmpty();
+
+        assertEquals("Test Case 25 failed.  Vending Machine did not display correct output", expected, actual);
+    }
+
 
 }

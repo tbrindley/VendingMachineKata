@@ -195,4 +195,11 @@ public class VendingMachine {
         }
         return returnString;
     }
+
+
+    public ArrayList<Coin> returnInsertedCoins(ArrayList<Coin> insertedCoins) {
+        double total = acceptedCoinTotal(insertedCoins);
+        System.out.println(makeCorrectChange(total));
+        return new ArrayList<Coin>();
+    }
 }
