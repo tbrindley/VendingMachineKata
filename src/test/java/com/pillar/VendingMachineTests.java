@@ -230,8 +230,16 @@ public class VendingMachineTests {
         insertedCoins = vendingMachine.returnInsertedCoins(insertedCoins);
         boolean actual =insertedCoins.isEmpty();
 
-        assertEquals("Test Case 25 failed.  Vending Machine did not display correct output", expected, actual);
+        assertEquals("Test Case 25 failed.  Vending Machine did not clean the inserted coins", expected, actual);
     }
 
+    @Test
+    public void vendingMachineWillCheckTheInventoryOfAProductBeforePurchase() throws Exception{
+        boolean expected = true;
+        boolean actual = vendingMachine.hasInventory(Product.CANDY_SELECTED);
+
+        assertEquals("Test Case 26 failed.  Vending Machine didn't find any inventory in stock", expected, actual);
+
+    }
 
 }

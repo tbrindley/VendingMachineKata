@@ -10,8 +10,6 @@ import java.util.ArrayList;
 public class VendingMachine {
     private static DecimalFormat coinFormat = new DecimalFormat("0.00");
 
-
-
     public String getInsertCoinLabel() {
         return "INSERT COIN";
     }
@@ -196,10 +194,13 @@ public class VendingMachine {
         return returnString;
     }
 
-
     public ArrayList<Coin> returnInsertedCoins(ArrayList<Coin> insertedCoins) {
         double total = acceptedCoinTotal(insertedCoins);
         System.out.println(makeCorrectChange(total));
         return new ArrayList<Coin>();
+    }
+
+    public boolean hasInventory(String selection){
+        return Product.getProductByName(selection).getQuantityInStock() > 0;
     }
 }
