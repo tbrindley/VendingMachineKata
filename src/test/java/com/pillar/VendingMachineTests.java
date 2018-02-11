@@ -212,4 +212,11 @@ public class VendingMachineTests {
         assertEquals("Test Case 23 failed.  Vending machine returned incorrect Change", expected,actual, .001);
     }
 
+    @Test
+    public void vendingMachineTurnsExpectedChangeAmountIntoCoins(){
+        String expected = "RETURNED 2 quarters";
+        String actual = vendingMachine.makeCorrectChange(.50);
+        assertEquals("Test Case 23 failed.  Vending machine returned incorrect Change", expected,actual);
+    }
+
 }

@@ -146,4 +146,53 @@ public class VendingMachine {
         }
         return totalInserted;
     }
+
+    public String makeCorrectChange(double returnAmount) {
+        String returnString = "RETURNED ";
+        int quarters = 0;
+        int dimes = 0;
+        int nickels = 0;
+
+        while(returnAmount >= Coin.getQuarter().getValue()){
+            quarters += 1;
+            returnAmount -= Coin.getQuarter().getValue();
+        }
+        while(returnAmount >= Coin.getDime().getValue()){
+            dimes += 1;
+            returnAmount -= Coin.getDime().getValue();
+        }
+        while(returnAmount >= Coin.getNickel().getValue()){
+            nickels += 1;
+            returnAmount -= Coin.getNickel().getValue();
+        }
+
+        if(quarters > 0){
+            if(quarters == 1){
+                returnString += quarters + " quarter";
+            }
+            else{
+                returnString += quarters + " quarters";
+            }
+
+        }
+        if(dimes > 0){
+            if(dimes == 1){
+                returnString += ", " + dimes + " dime";
+            }
+            else{
+                returnString += ", " + dimes + " dimes";
+            }
+
+        }
+        if(nickels > 0){
+            if(nickels == 1){
+                returnString += ", " + nickels + " nickel.";
+            }
+            else{
+                returnString += ", " + nickels + " nickels.";
+            }
+
+        }
+        return returnString;
+    }
 }
