@@ -1,4 +1,4 @@
-#Vending Machine Kata
+# Vending Machine Kata
 ## Overview
 This kata simulates a vending machine and its core functionality.  The vending machine can do the following:
 
