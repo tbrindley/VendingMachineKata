@@ -136,9 +136,11 @@ public class VendingMachine {
     public String makePurchase(ArrayList<Coin> coins, String productSelected) {
     double total = acceptedCoinTotal(coins);
     Product product = Product.getProductByName(productSelected);
-
-    if(total >= product.getPrice()){
+    if(total >= product.getPrice() && !exactChangeOnly(coins, product.getName())){
         return "THANK YOU";
+    }
+    else if(exactChangeOnly(coins, product.getName())){
+        return "EXACT CHANGE ONLY";
     }
     return "PRICE";
 

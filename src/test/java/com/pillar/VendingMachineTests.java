@@ -265,4 +265,17 @@ public class VendingMachineTests {
 
     }
 
+    @Test
+    public void vendingMachineReturnsExactChangeOnlyWhenChangeCantBeMade() throws Exception{
+        ArrayList<Coin> coins = new ArrayList<Coin>();
+        coins.add(quarter);
+        coins.add(quarter);
+        coins.add(quarter);
+        coins.add(quarter);
+        Coin.getDime().setInventoryQuantity(0);
+        String expected = "EXACT CHANGE ONLY";
+        String actual = vendingMachine.makePurchase(coins, Product.CANDY_SELECTED);
+        assertEquals("Test 29 failed.  Vending Machine didn't return correct output", expected, actual);
+    }
+
 }
