@@ -3,7 +3,6 @@ package com.pillar.vendingmachine;
 import com.pillar.coins.Coin;
 import com.pillar.product.Product;
 
-import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -79,11 +78,10 @@ public class VendingMachine {
 
     }
 
-    private double acceptedCoinTotal(ArrayList<Coin> insertedCoins){
+    public double acceptedCoinTotal(ArrayList<Coin> insertedCoins){
         double total = 0;
         if(!insertedCoins.isEmpty()){
             for(Coin coin: insertedCoins){
-                System.out.println(acceptOrRejectCoin(coin));
                 if(!coinTypeChecker(coin, Coin.IS_COIN_A_PENNY)){
                     total += coin.getValue();
                 }
@@ -137,6 +135,8 @@ public class VendingMachine {
     double total = acceptedCoinTotal(coins);
     Product product = Product.getProductByName(productSelected);
     if(total >= product.getPrice() && !exactChangeOnly(coins, product.getName())){
+        System.out.println(makeCorrectChange(returnChange(total, product.getPrice())));
+        coins.clear();
         return "THANK YOU";
     }
     else if(exactChangeOnly(coins, product.getName())){
@@ -159,7 +159,6 @@ public class VendingMachine {
         int quarters = coinCount[QUARTER];
         int dimes = coinCount[DIME];
         int nickels = coinCount[NICKEL];
-
         if(quarters > 0){
             if(quarters == 1){
                 returnString += quarters + " quarter";
@@ -167,7 +166,6 @@ public class VendingMachine {
             else{
                 returnString += quarters + " quarters";
             }
-
         }
         if(dimes > 0){
             if(dimes == 1){
@@ -176,7 +174,6 @@ public class VendingMachine {
             else{
                 returnString += ", " + dimes + " dimes";
             }
-
         }
         if(nickels > 0){
             if(nickels == 1){
@@ -185,7 +182,10 @@ public class VendingMachine {
             else{
                 returnString += ", " + nickels + " nickels.";
             }
+        }
 
+        if(quarters + dimes + nickels == 0){
+            returnString = "";
         }
         return returnString;
     }
