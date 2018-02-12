@@ -3,12 +3,15 @@ package com.pillar.vendingmachine;
 import com.pillar.coins.Coin;
 import com.pillar.product.Product;
 
+import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-
 public class VendingMachine {
     private static DecimalFormat coinFormat = new DecimalFormat("0.00");
+    private static final int QUARTER = 0;
+    private static final int DIME = 1;
+    private static final int NICKEL = 2;
 
     public String getInsertCoinLabel() {
         return "INSERT COIN";
@@ -140,6 +143,7 @@ public class VendingMachine {
     return "PRICE";
 
     }
+
     public double returnChange(double totalInserted, double productPrice ){
         if(totalInserted >= productPrice){
             return totalInserted - productPrice;
@@ -149,22 +153,10 @@ public class VendingMachine {
 
     public String makeCorrectChange(double returnAmount) {
         String returnString = "RETURNED ";
-        int quarters = 0;
-        int dimes = 0;
-        int nickels = 0;
-
-        while(returnAmount >= Coin.getQuarter().getValue()){
-            quarters += 1;
-            returnAmount -= Coin.getQuarter().getValue();
-        }
-        while(returnAmount >= Coin.getDime().getValue()){
-            dimes += 1;
-            returnAmount -= Coin.getDime().getValue();
-        }
-        while(returnAmount >= Coin.getNickel().getValue()){
-            nickels += 1;
-            returnAmount -= Coin.getNickel().getValue();
-        }
+        int[] coinCount = getCoinTypeCount(returnAmount);
+        int quarters = coinCount[QUARTER];
+        int dimes = coinCount[DIME];
+        int nickels = coinCount[NICKEL];
 
         if(quarters > 0){
             if(quarters == 1){
@@ -205,4 +197,43 @@ public class VendingMachine {
     public boolean hasInventory(String selection){
         return Product.getProductByName(selection).getQuantityInStock() > 0;
     }
+
+    public boolean exactChangeOnly(ArrayList<Coin> coins, String selection) {
+        double totalInserted = acceptedCoinTotal(coins);
+
+        Product product = Product.getProductByName(selection);
+        double change = returnChange(totalInserted, product.getPrice());
+        int[] coinCount = getCoinTypeCount(change);
+        if(coinCount[QUARTER] > Coin.getQuarter().getInventoryQuantity() ||
+                coinCount[DIME] > Coin.getDime().getInventoryQuantity() ||
+                coinCount[NICKEL] > Coin.getDime().getInventoryQuantity()){
+            return true;
+        }
+        return false;
+    }
+
+    private int[] getCoinTypeCount(double changeToBeReturned) {
+        int coinCount[] = new int[3];
+        int quarters = 0;
+        int dimes = 0;
+        int nickels = 0;
+
+        while(changeToBeReturned >= Coin.getQuarter().getValue()){
+            quarters += 1;
+            changeToBeReturned -= Coin.getQuarter().getValue();
+        }
+        while(changeToBeReturned >= Coin.getDime().getValue()){
+            dimes += 1;
+            changeToBeReturned -= Coin.getDime().getValue();
+        }
+        while(changeToBeReturned >= Coin.getNickel().getValue()){
+            nickels += 1;
+            changeToBeReturned -= Coin.getNickel().getValue();
+        }
+        coinCount[QUARTER] = quarters;
+        coinCount[DIME] = dimes;
+        coinCount[NICKEL] = nickels;
+        return coinCount;
+    }
+
 }

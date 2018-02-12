@@ -117,7 +117,7 @@ public class VendingMachineTests {
     }
     @Test
     public void vendingMachineRejectsAllOtherCoins() throws Exception{
-        Coin junkCoin = new Coin(2.2, 22.21, 1.95, 0);
+        Coin junkCoin = new Coin(2.2, 22.21, 1.95, 0, 0);
         String expected = "COIN NOT ACCEPTED";
         String actual = vendingMachine.acceptOrRejectCoin(junkCoin);
 
@@ -155,7 +155,7 @@ public class VendingMachineTests {
     }
     @Test
     public void vendingMachineReturnsInsertCoinAfterRejectingPennyOrJunkCoins() throws Exception{
-        Coin junkCoin = new Coin(2.2, 22.21, 1.95, 0);
+        Coin junkCoin = new Coin(2.2, 22.21, 1.95, 0, 0);
         ArrayList<Coin> insertedCoins = new ArrayList<Coin>();
         insertedCoins.add(penny);
         insertedCoins.add(junkCoin);
@@ -249,6 +249,20 @@ public class VendingMachineTests {
         String actual = vendingMachine.selectProduct(Product.CANDY_SELECTED);
 
         assertEquals("Test Case 27 failed.  Vending Machine still made purchase despite no inventory", expected, actual);
+    }
+
+    @Test
+    public void vendingMachineWillNotAllowThePurchaseIfItCannotMakeChange() throws Exception{
+        ArrayList<Coin> coins = new ArrayList<Coin>();
+        coins.add(quarter);
+        coins.add(quarter);
+        coins.add(quarter);
+        coins.add(quarter);
+        Coin.getDime().setInventoryQuantity(0);
+        boolean expected = true;
+        boolean actual = vendingMachine.exactChangeOnly(coins, Product.CANDY_SELECTED);
+        assertEquals("Test 28 failed.  Vending Machine didn't read coin inventory correctly", expected, actual);
+
     }
 
 }

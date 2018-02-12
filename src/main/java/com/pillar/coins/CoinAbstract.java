@@ -6,6 +6,7 @@ abstract class CoinAbstract {
     double width ;
     double thickness;
     double value;
+    int inventoryQuantity;
 
     public double getWeight() {
         return weight;
@@ -37,5 +38,13 @@ abstract class CoinAbstract {
 
     public void setValue(double value) {
         this.value = value;
+    }
+
+    public int getInventoryQuantity() {
+        return inventoryQuantity;
+    }
+
+    public void setInventoryQuantity(int inventoryQuantity) {
+        this.inventoryQuantity = inventoryQuantity;
     }
 }
