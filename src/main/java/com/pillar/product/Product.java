@@ -1,7 +1,9 @@
 package com.pillar.product;
 
 /**
- * Created by Travis Brindley on 2/8/2018.
+ * The Product class represents all all products placed into the vending machine.  Each object will have 3 attributes which
+ * include price (double), quantityInStock (int), and productName (String).  This Classes uses the Singleton Design pattern to
+ * create instances of the different products.
  */
 public class Product extends ProductAbstract {
     public static final String COLA_SELECTED = getCola().getName();
@@ -11,10 +13,7 @@ public class Product extends ProductAbstract {
     private static Product candy = null;
     private static Product chips = null;
 
-    public Product() {
-    }
-
-    public Product(double price, int quantityInStock, String productName){
+    private Product(double price, int quantityInStock, String productName){
         this.price = price;
         this.quantityInStock = quantityInStock;
         this.name = productName;
@@ -22,11 +21,6 @@ public class Product extends ProductAbstract {
     @Override
     public double getPrice() {
         return super.getPrice();
-    }
-
-    @Override
-    public void setPrice(double price) {
-        super.setPrice(price);
     }
 
     @Override
@@ -42,11 +36,6 @@ public class Product extends ProductAbstract {
     @Override
     public String getName() {
         return super.getName();
-    }
-
-    @Override
-    public void setName(String name) {
-        super.setName(name);
     }
 
     public static Product getCola() {
@@ -71,14 +60,16 @@ public class Product extends ProductAbstract {
     }
 
     public static Product getProductByName(String productName){
-        if(productName.equals(COLA_SELECTED)){
-            return getCola();
-        }
-        else if(productName.equals(CHIPS_SELECTED)){
-            return getChips();
-        }
-        else if(productName.equals(CANDY_SELECTED)){
-            return getCandy();
+        if(productName != null){
+            if(productName.equals(COLA_SELECTED)){
+                return getCola();
+            }
+            else if(productName.equals(CHIPS_SELECTED)){
+                return getChips();
+            }
+            else if(productName.equals(CANDY_SELECTED)){
+                return getCandy();
+            }
         }
         return null;
     }

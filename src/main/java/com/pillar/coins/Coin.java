@@ -10,8 +10,6 @@ public class Coin extends CoinAbstract {
     private static Coin dime = null;
     private static Coin quarter = null;
 
-    private Coin() {
-    }
     public Coin(double weight, double width, double thickness, double value, int inventoryQuantity){
         this.weight = weight;
         this.width = width;
@@ -26,18 +24,8 @@ public class Coin extends CoinAbstract {
     }
 
     @Override
-    public void setWeight(double weight) {
-        super.setWeight(weight);
-    }
-
-    @Override
     public double getWidth() {
         return super.getWidth();
-    }
-
-    @Override
-    public void setWidth(double width) {
-        super.setWidth(width);
     }
 
     @Override
@@ -46,18 +34,8 @@ public class Coin extends CoinAbstract {
     }
 
     @Override
-    public void setThickness(double thickness) {
-        super.setThickness(thickness);
-    }
-
-    @Override
     public double getValue() {
         return super.getValue();
-    }
-
-
-    public void setValue(double value) {
-        super.setValue(value);
     }
 
     @Override
@@ -68,6 +46,10 @@ public class Coin extends CoinAbstract {
     @Override
     public void setInventoryQuantity(int inventoryQuantity) {
         super.setInventoryQuantity(inventoryQuantity);
+    }
+
+    public void removeOneCoinFromInventory(){
+        super.setInventoryQuantity(super.getInventoryQuantity() - 1);
     }
 
     public static Coin getPenny(){

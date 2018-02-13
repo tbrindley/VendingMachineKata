@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Created by Travis Brindley on 2/6/2018.
+ * The Main class will serve as the simulator for the vending machine.  Through the main method, the use will be able to
+ * add coins, make a purchase, or return their coins.
  */
 public class Main {
     public static void main(String[] args) {
@@ -49,7 +50,7 @@ public class Main {
                         break;
                     case 7: System.out.println("MACHINE OUTPUT: " +vendingMachine.makePurchase(insertedCoins, Product.CANDY_SELECTED));
                         break;
-                    case 8: vendingMachine.returnInsertedCoins(insertedCoins);
+                    case 8: insertedCoins = vendingMachine.returnInsertedCoins(insertedCoins);
                         break;
                     default: System.out.println("Invalid Selection");
                 }

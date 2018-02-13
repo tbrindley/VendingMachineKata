@@ -1,8 +1,5 @@
 package com.pillar.product;
 
-/**
- * Created by Travis Brindley on 2/8/2018.
- */
 abstract class ProductAbstract {
     double price;
     int quantityInStock;
@@ -10,10 +7,6 @@ abstract class ProductAbstract {
 
     public double getPrice() {
         return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public int getQuantityInStock() {
@@ -26,9 +19,5 @@ abstract class ProductAbstract {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
